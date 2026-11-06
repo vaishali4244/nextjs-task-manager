@@ -1,0 +1,21 @@
+{
+  "name": "learn-task-manager",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test -w server",
+    "admin": "npm run admin -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
